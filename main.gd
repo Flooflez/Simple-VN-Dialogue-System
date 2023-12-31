@@ -15,6 +15,8 @@ var current_dialogue
 @onready var choice1 = $MarginContainer/VBoxContainer/Button
 @onready var choice2 = $MarginContainer/VBoxContainer/Button2
 
+@onready var container = $MarginContainer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dialogue1.text = "Hello! I am a dialogue thing"
@@ -74,7 +76,7 @@ func load_dialogue(dialogue):
 
 func _on_button_pressed(): #choice 1
 	if current_dialogue.end:
-		pass #end
+		container.visible = false
 	else:
 		load_dialogue(current_dialogue.nextNodes[0])
 
